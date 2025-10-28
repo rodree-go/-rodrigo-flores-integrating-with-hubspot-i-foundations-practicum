@@ -6,11 +6,10 @@ html(lang="en")
         title= title
         link(rel="stylesheet", href="/css/style.css")
     body
-        div.container
-            h1 Add New Contact
+            h1 Update Custom Object
 
             p
-                a(href="/") Back to homepage
+                a(href="/") Return to the homepage
 
             form(method="POST", action="/update-cobj")
                 div.form-group
@@ -22,11 +21,11 @@ html(lang="en")
                     input(type="text", id="lastname", name="lastname", required)
 
                 div.form-group
-                    label(for="email") Email Address:
+                    label(for="email") Email:
                     input(type="email", id="email", name="email", required)
 
                 div.form-group
                     label(for="nationality") Nationality:
                     input(type="text", id="nationality", name="nationality", required)
 
-                button(type="submit") Add Contact
+                button(type="submit") Create Contact
