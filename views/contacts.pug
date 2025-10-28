@@ -1,15 +1,31 @@
-//- ** This is a sample of a pug template and how it uses the data passed to it from index.js.
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title= title
+        link(rel="stylesheet", href="/css/style.css")
+    body
+        div.container
+            h1 HubSpot Contacts Table
 
-//- doctype html
-//- html 
-//-     head 
-//-         title= `${title}`
-//-         meta(name="viewport" content="width=device-width, initial-scale=1")
-//-         link(rel="stylesheet", href="/css/style.css")
-//-     body    
-//-         h1 Contacts
-//-         .cards 
-//-             each contact in data
-//-                 .card 
-//-                     h2.card__name #{contact.properties.firstname}  #{contact.properties.lastname}
-//-                     p.card__email #{contact.properties.email}
+            p
+                a(href="/update-cobj") Add to this table
+
+            if contacts && contacts.length > 0
+                table
+                    thead
+                        tr
+                            th First Name
+                            th Last Name
+                            th Email
+                            th Nationality
+                    tbody
+                        each contact in contacts
+                            tr
+                                td= contact.properties.firstname || 'N/A'
+                                td= contact.properties.lastname || 'N/A'
+                                td= contact.properties.email || 'N/A'
+                                td= contact.properties.nationality || 'N/A'
+            else
+                p No contacts found!
