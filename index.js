@@ -12,10 +12,36 @@ app.use(express.json());
 const PORT = 3000;
 const PRIVATE_APP_ACCESS = process.env.PRIVATE_APP_ACCESS;
 
-
 // TODO: ROUTE 1 - Create a new app.get route for the homepage to call your custom object data. Pass this data along to the front-end and create a new pug template in the views folder.
+app.get('/', async (req, res) => {
+    try {
+        const contactsResponse = await axios.get(
+            'https://api.hubapi.com/crm/v3/objects/contacts',
+            {
+                headers: {
+                    Authorization: `Bearer ${PRIVATE_APP_ACCESS}`,
+                    'Content-Type': 'application/json'
+                },
+                params: {
+                    limit: 20,
+                    properties: 'firstname,lastname,email'
+                }
+            }
+        );
 
-// * Code for Route 1 goes here
+        const contacts = contactsResponse.data.results;
+
+        res.render('homepage', {
+            title: 'Contacts List | HubSpot Practicum',
+            contacts: contacts
+        });
+
+    } catch (error) {
+        console.error('Error fetching contacts:', error.response?.data || error.message);
+        res.status(500).send('Error fetching contacts from HubSpot');
+    }
+});
+
 
 // TODO: ROUTE 2 - Create a new app.get route for the form to create or update new custom object data. Send this data along in the next route.
 
