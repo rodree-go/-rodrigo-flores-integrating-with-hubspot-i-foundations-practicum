@@ -11,20 +11,21 @@ html(lang="en")
             p
                 a(href="/") Return to the homepage
 
+        div.form-wrapper
             form(method="POST", action="/update-cobj")
-                div.form-group
+                div
                     label(for="firstname") First Name:
                     input(type="text", id="firstname", name="firstname", required)
 
-                div.form-group
+                div
                     label(for="lastname") Last Name:
                     input(type="text", id="lastname", name="lastname", required)
 
-                div.form-group
+                div
                     label(for="email") Email:
                     input(type="email", id="email", name="email", required)
 
-                div.form-group
+                div
                     label(for="nationality") Nationality:
                     input(type="text", id="nationality", name="nationality", required)
 

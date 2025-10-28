@@ -6,11 +6,114 @@ body, * {
     padding: 0;
 }
 
-h1 {
-    margin: 1rem;
+body {
+    padding: 40px;
+    background-color: #ffffff;
 }
 
-.cards {
+
+h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin: 20px 0;
+    color: #000000;
+}
+
+a {
+    color: #0000EE;
+    text-decoration: underline;
+    font-size: 16px;
+    display: inline-block;
+    margin: 10px 0 20px 0;
+}
+
+a:hover {
+    color: #551A8B;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border: 2px solid #000000;
+}
+
+thead {
+    background-color: #FFE7E9;
+}
+
+th {
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 32px;
+    font-weight: bold;
+    color: #000000;
+    border: 2px solid #000000;
+}
+
+td {
+    padding: 12px 15px;
+    font-size: 28px;
+    color: #000000;
+    border: 2px solid #000000;
+    background-color: #ffffff;
+}
+
+.form-wrapper {
+    font-size: 18px;
+    max-width: 768px;
+    margin: 2rem 0;
+    padding: 2rem;
+    border: solid 1px lightgrey;
+    border-radius: 15px;
+    box-shadow: 3px 2px 6px lightgrey;
+}
+
+label {
+    margin-top: 15px;
+    margin-bottom: 5px;
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333333;
+}
+
+input[type="text"],
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    font-size: 16px;
+    border: 2px solid #cccccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus {
+    outline: none;
+    border-color: #0066cc;
+}
+
+input[type="submit"],
+button[type="submit"] {
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover,
+button[type="submit"]:hover {
+    background-color: #0052a3;
+}
+
+/* .cards {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -55,4 +158,4 @@ input[type="submit"] {
     border: none;
     padding: .375rem 1rem;
     margin-top: 10px;
-}
+} */
