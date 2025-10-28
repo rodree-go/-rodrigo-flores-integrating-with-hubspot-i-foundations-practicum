@@ -12,7 +12,7 @@ ___
 - The subject of the custom object is up to you. Feel free to get creative!
 - Please create a test account and include your private app access token in your repo.
 - Ensure you re-merge any working branches into the main branch.
-- DO NOT ADD YOUR PRIVATE APP TOKEN TO YOUR REPOSITORY. 
+- DO NOT ADD YOUR PRIVATE APP TOKEN TO YOUR REPOSITORY.
 
 ## Pre-requisites:
 - Using [Node](https://nodejs.org/en/download) and node packages
@@ -26,3 +26,6 @@ ___
 - All work must be your own. During the grading process we will check the revision history. Submissions that do not meet this requirement will not be considered.
 - You must have at least two new routes in your index.js file and one new pug template for the homepage.
 - You must create a developer test account and link to it in your README.md file. Submissions that do not meet this requirement will not be considered.
+
+# My HubSpot Integration Practicum
+Link to contacts list view: https://app.hubspot.com/contacts/50220641/objects/0-1/views/all/list
