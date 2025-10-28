@@ -31,7 +31,7 @@ app.get('/', async (req, res) => {
 
         const contacts = contactsResponse.data.results;
 
-        res.render('homepage', {
+        res.render('contacts', {
             title: 'Contacts List | HubSpot Practicum',
             contacts: contacts
         });
