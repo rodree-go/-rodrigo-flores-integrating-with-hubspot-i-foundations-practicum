@@ -1,0 +1,32 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title= title
+        link(rel="stylesheet", href="/css/style.css")
+    body
+        div.container
+            h1 Add New Contact
+
+            p
+                a(href="/") Back to homepage
+
+            form(method="POST", action="/update-cobj")
+                div.form-group
+                    label(for="firstname") First Name:
+                    input(type="text", id="firstname", name="firstname", required)
+
+                div.form-group
+                    label(for="lastname") Last Name:
+                    input(type="text", id="lastname", name="lastname", required)
+
+                div.form-group
+                    label(for="email") Email Address:
+                    input(type="email", id="email", name="email", required)
+
+                div.form-group
+                    label(for="nationality") Nationality:
+                    input(type="text", id="nationality", name="nationality", required)
+
+                button(type="submit") Add Contact
