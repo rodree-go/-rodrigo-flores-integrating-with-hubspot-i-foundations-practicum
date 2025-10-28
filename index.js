@@ -24,7 +24,7 @@ app.get('/', async (req, res) => {
                 },
                 params: {
                     limit: 20,
-                    properties: 'firstname,lastname,email'
+                    properties: 'firstname,lastname,email,nationality'
                 }
             }
         );
@@ -54,13 +54,14 @@ app.get('/update-cobj', (req, res) => {
 
 app.post('/update-cobj', async (req, res) => {
     try {
-        const { firstname, lastname, email } = req.body;
+        const { firstname, lastname, email, nationality } = req.body;
 
         const contactData = {
             properties: {
                 firstname: firstname,
                 lastname: lastname,
-                email: email
+                email: email,
+                nationality: nationality
             }
         };
 
@@ -76,54 +77,16 @@ app.post('/update-cobj', async (req, res) => {
         );
 
         console.log('Contact created successfully:', createResponse.data);
-}
-})
 
+        res.redirect('/');
 
-/**
-* * This is sample code to give you a reference for how you should structure your calls.
-
-* * App.get sample
-app.get('/contacts', async (req, res) => {
-    const contacts = 'https://api.hubspot.com/crm/v3/objects/contacts';
-    const headers = {
-        Authorization: `Bearer ${PRIVATE_APP_ACCESS}`,
-        'Content-Type': 'application/json'
-    }
-    try {
-        const resp = await axios.get(contacts, { headers });
-        const data = resp.data.results;
-        res.render('contacts', { title: 'Contacts | HubSpot APIs', data });
     } catch (error) {
-        console.error(error);
+        console.error('Error creating contact:', error.response?.data || error.message);
+        res.status(500).send('Error creating contact in HubSpot');
     }
 });
 
-* * App.post sample
-app.post('/update', async (req, res) => {
-    const update = {
-        properties: {
-            "favorite_book": req.body.newVal
-        }
-    }
-
-    const email = req.query.email;
-    const updateContact = `https://api.hubapi.com/crm/v3/objects/contacts/${email}?idProperty=email`;
-    const headers = {
-        Authorization: `Bearer ${PRIVATE_APP_ACCESS}`,
-        'Content-Type': 'application/json'
-    };
-
-    try {
-        await axios.patch(updateContact, update, { headers } );
-        res.redirect('back');
-    } catch(err) {
-        console.error(err);
-    }
-
+app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+    console.log('Press Ctrl+C to stop the server');
 });
-*/
-
-
-// * Localhost
-app.listen(3000, () => console.log('Listening on http://localhost:3000'));
